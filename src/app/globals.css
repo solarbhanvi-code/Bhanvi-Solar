@@ -1,0 +1,139 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Brand palette — deep charcoal + solar yellow + energy green.
+     See README > Design decisions for the rationale. */
+  --color-ink-950: #08090b;
+  --color-ink-900: #101216;
+  --color-ink-800: #191c21;
+  --color-ink-700: #262a31;
+  --color-ink-600: #3a3f47;
+
+  --color-solar-300: #ffd873;
+  --color-solar-400: #ffc736;
+  --color-solar-500: #f6ae0e;
+  --color-solar-600: #d99000;
+  --color-solar-700: #a86e00;
+
+  --color-energy-300: #7fe0b4;
+  --color-energy-400: #43c98a;
+  --color-energy-500: #1fa971;
+  --color-energy-600: #16875a;
+  --color-energy-700: #106944;
+
+  --color-mist-50: #fafafa;
+  --color-mist-100: #f4f5f6;
+  --color-mist-200: #e8eaec;
+  --color-mist-300: #d7dade;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-sora);
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-flow: flow 2.4s ease-in-out infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes flow {
+  0%,
+  100% {
+    stroke-dashoffset: 24;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+:root {
+  --background: var(--color-mist-50);
+  --foreground: var(--color-ink-950);
+  --card: #ffffff;
+  --card-foreground: var(--color-ink-950);
+  --border: var(--color-mist-200);
+  --muted: var(--color-mist-100);
+  --muted-foreground: var(--color-ink-600);
+  --ring: var(--color-solar-500);
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 0.375rem);
+  --radius-sm: calc(var(--radius) - 0.625rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), ui-sans-serif, sans-serif;
+}
+
+::selection {
+  background: var(--color-solar-400);
+  color: var(--color-ink-950);
+}
+
+.container-page {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
