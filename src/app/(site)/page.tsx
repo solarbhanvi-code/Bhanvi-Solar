@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
+  Calculator,
   Handshake,
   Leaf,
   ShieldCheck,
@@ -90,6 +91,14 @@ export default async function HomePage() {
               <Link href="/services">Explore Solar Solutions</Link>
             </Button>
           </div>
+          <Link
+            href="/solar-calculator"
+            className="group inline-flex items-center gap-2 rounded-full border border-solar-400/30 bg-solar-400/10 px-4 py-2 text-sm font-medium text-solar-300 transition-colors hover:bg-solar-400/20"
+          >
+            <Calculator className="size-4" />
+            Estimate your savings with our Solar Calculator
+            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </section>
 
